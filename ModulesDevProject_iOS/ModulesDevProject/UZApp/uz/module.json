@@ -1,0 +1,20 @@
+[
+ {
+    "name":"moduleDemo",
+    "class":"UZModuleDemo",
+    "methods":["showAlert"]
+ },
+ {
+     "name":"moduleDemoSwift",
+     "class":"UZModuleDemoSwift",
+     "methods":["showAlert"]
+ },
+ {
+     "name":"sensorsAnalyticsAPICloudSDK",
+     "class":"SensorsAnalyticsAPICloudSDK",
+     "methods":["enableLog","login","track","flush","registerSuperProperties","unregisterSuperProperty","identify","trackInstallation","trackTimerStart","trackTimerEnd","clearTrackTimer","logout","profileSet","profileSetOnce","profileUnset","profileIncrement","profileAppend","deleteUser","trackViewScreen","deleteAll","setServerUrl"],
+     "syncMethods":["getDistinctId"],
+     "launchClassMethod":"launch"
+ }
+]
+

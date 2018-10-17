@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Module Develop</title>
+<meta charset="utf-8">
+<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+<style type="text/css">
+	html,body{
+		height: 100%
+	}
+	body{
+		background-color: #fff;
+	    margin: 0;
+	}
+	#wrap{
+	    height: 100%;
+	    position: relative;
+	}
+	#header{
+		background-color: #5082c2;
+		height: 44px;
+	    position: relative;
+	}
+	#header h1{
+	    font-size: 20px; 
+	    height: 44px; 
+	    line-height: 44px; 
+	    margin: 0em; 
+	    color: #fff;
+		margin-left: 100px;
+		margin-right: 100px;
+		text-align: center;
+	}
+    #main{
+        display: block;
+    }
+    a.button{
+        display: -webkit-box;
+        -webkit-box-pack: center;
+        -webkit-box-align: center;
+        height: 36px;
+        margin: 8px;
+        background-color: rgba(240,240,240,1.0);
+        border-color: rgba(220,220,220,1.0);
+        border-width: 2px;
+        border-style: solid;
+	}
+    a.active{
+        background-color: rgba(240,240,240,0.6);
+	}
+</style>
+</head>
+<body>
+	<div id="wrap">
+	    <header id="header">
+	    	<h1 id="title">模块开发</h1>
+	    </header>
+	    <div id="main">
+            <!--
+             {
+             "name":"sensorsAnalyticsAPICloudSDK",
+             "class":"SensorsAnalyticsAPICloudSDK",
+             "methods":["enableLog","login","track","flush","registerSuperProperties","unregisterSuperProperty","identify","trackInstallation","trackTimerStart","trackTimerEnd","clearTrackTimer","logout","profileSet","profileSetOnce","profileUnset","profileIncrement","profileAppend","deleteUser","trackViewScreen"],
+             "syncMethods":["getDistinctId"],
+             "launchClassMethod":"launch"
+             }
+            -->
+            <a class="button" tapmode="active" onclick="enableLog()">enableLog</a>
+            <a class="button" tapmode="active" onclick="registerSuperProperties()">registerSuperProperties</a>
+            <a class="button" tapmode="active" onclick="unregisterSuperProperty()">unRegisterSuperProperties</a>
+            <a class="button" tapmode="active" onclick="login()">login</a>
+            <a class="button" tapmode="active" onclick="identify()">identify</a>
+            
+            <a class="button" tapmode="active" onclick="trackInstallation()">trackInstallation</a>
+            <a class="button" tapmode="active" onclick="track()">track</a>
+            <a class="button" tapmode="active" onclick="trackTimerStart()">trackTimerStart</a>
+            <a class="button" tapmode="active" onclick="trackTimerEnd()">trackTimerEnd</a>
+            <a class="button" tapmode="active" onclick="clearTrackTimer()">clearTrackTimer</a>
+            
+            <a class="button" tapmode="active" onclick="logout()">logout</a>
+            <a class="button" tapmode="active" onclick="profileSet()">set</a>
+            <a class="button" tapmode="active" onclick="profileSetOnce()">setOnce</a>
+            <a class="button" tapmode="active" onclick="profileUnset()">unset</a>
+            <a class="button" tapmode="active" onclick="profileIncrement()">increment</a>
+            
+            <a class="button" tapmode="active" onclick="profileAppend()">appendBy</a>
+            <a class="button" tapmode="active" onclick="deleteUser()">deleteUser</a>
+            <a class="button" tapmode="active" onclick="trackViewScreen()">trackViewScreen</a>
+            <a class="button" tapmode="active" onclick="getDistinctId()">getDistinctId</a>
+            <a class="button" tapmode="active" onclick="deleteAll()">deleteAll</a>
+            
+            <a class="button" tapmode="active" onclick="setServerUrl()">setServerUrl</a>
+
+
+        </div>
+    </div>
+</body>
+<script>
+function enableLog() {
+    /*
+     var demo = api.require('moduleDemo');
+     demo.showAlert({
+     msg: 'Hello App!'
+     },function(ret, err){
+     var msg = "点击了第" + ret.index + "个按钮";
+     api.toast({
+     msg: msg
+     });
+     });
+     */
+  
+  var sensorsApiCloudSdk = api.require('sensorsAnalyticsAPICloudSDK');
+  sensorsApiCloudSdk.enableLog({enableLog:true});
+}
+
+function registerSuperProperties() {
+    var sensorsApiCloudSdk = api.require('sensorsAnalyticsAPICloudSDK');
+    sensorsApiCloudSdk.registerSuperProperties({properties:{ApiCloudSuperKey:'ApiCloudSuperValue',ApiCloudSuperKey1:'ApiCloudSuperValue1'}});
+}
+
+function unregisterSuperProperty() {
+    var sensorsApiCloudSdk = api.require('sensorsAnalyticsAPICloudSDK');
+    sensorsApiCloudSdk.unregisterSuperProperty({proprerty:'ApiCloudSuperKey'});
+}
+
+function login() {
+    var sensorsApiCloudSdk = api.require('sensorsAnalyticsAPICloudSDK');
+    sensorsApiCloudSdk.login({loginId:'test_ApiCloud_login',properties:{ApiCloudAction:'ApiCloudClickLogin'}});
+}
+
+function identify() {
+    var sensorsApiCloudSdk = api.require('sensorsAnalyticsAPICloudSDK');
+    sensorsApiCloudSdk.identify({anonymousId:'test_identify_ApiCloud'});
+}
+
+function track() {
+    var sensorsApiCloudSdk = api.require('sensorsAnalyticsAPICloudSDK');
+    sensorsApiCloudSdk.track({event:'ApiCloudClick', properties:{pageName:'index.html'}});
+}
+
+function trackInstallation() {
+    var sensorsApiCloudSdk = api.require('sensorsAnalyticsAPICloudSDK');
+    sensorsApiCloudSdk.trackInstallation({properties:{ApiCloudInstall:'ApiCloudInstallValue'}});
+}
+
+function trackTimerStart() {
+    var sensorsApiCloudSdk = api.require('sensorsAnalyticsAPICloudSDK');
+    sensorsApiCloudSdk.trackTimerStart({event:'ApiCloudTrackTimer'});
+}
+
+function trackTimerEnd() {
+    var sensorsApiCloudSdk = api.require('sensorsAnalyticsAPICloudSDK');
+    sensorsApiCloudSdk.trackTimerEnd({event:'ApiCloudTrackTimer', properties:{ApiCloudTrackTimerState:'ApiCloudTrackTimerEnd'}});
+}
+
+function clearTrackTimer() {
+    var sensorsApiCloudSdk = api.require('sensorsAnalyticsAPICloudSDK');
+    sensorsApiCloudSdk.clearTrackTimer();
+}
+
+function logout() {
+    var sensorsApiCloudSdk = api.require('sensorsAnalyticsAPICloudSDK');
+    sensorsApiCloudSdk.logout();
+}
+
+function profileSet() {
+    var sensorsApiCloudSdk = api.require('sensorsAnalyticsAPICloudSDK');
+    sensorsApiCloudSdk.profileSet({properties:{ApiCloudAge:33,ApiCloudEndAge:88}});
+}
+
+function profileSetOnce() {
+    var sensorsApiCloudSdk = api.require('sensorsAnalyticsAPICloudSDK');
+    sensorsApiCloudSdk.profileSetOnce({properties:{ApiCloudAge:44,ApiCloudEndAge:99}});
+}
+
+function profileIncrement() {
+    var sensorsApiCloudSdk = api.require('sensorsAnalyticsAPICloudSDK');
+    sensorsApiCloudSdk.profileIncrement({properties:{chinese:60,math:70}});
+}
+
+function profileAppend() {
+    var sensorsApiCloudSdk = api.require('sensorsAnalyticsAPICloudSDK');
+    sensorsApiCloudSdk.profileAppend({property:'ArrayDesc',value:['SDK','后端','算法']});
+}
+
+function deleteUser() {
+    var sensorsApiCloudSdk = api.require('sensorsAnalyticsAPICloudSDK');
+    sensorsApiCloudSdk.deleteUser();
+}
+
+function profileUnset() {
+    var sensorsApiCloudSdk = api.require('sensorsAnalyticsAPICloudSDK');
+    sensorsApiCloudSdk.profileUnset({property:'ApiCloudAge'});
+}
+
+function trackViewScreen() {
+    var sensorsApiCloudSdk = api.require('sensorsAnalyticsAPICloudSDK');
+    sensorsApiCloudSdk.trackViewScreen({url:'index.html',properties:{pageName:'index.html'}});
+}
+
+function getDistinctId() {
+    var sensorsApiCloudSdk = api.require('sensorsAnalyticsAPICloudSDK');
+    var distinctId = sensorsApiCloudSdk.getDistinctId({property:'ApiCloudAge'});
+    alert(distinctId);
+}
+
+function deleteAll() {
+    var sensorsApiCloudSdk = api.require('sensorsAnalyticsAPICloudSDK');
+    var distinctId = sensorsApiCloudSdk.deleteAll();
+}
+function setServerUrl() {
+    var sensorsApiCloudSdk = api.require('sensorsAnalyticsAPICloudSDK');
+    var distinctId = sensorsApiCloudSdk.setServerUrl({serverUrl:'testURL'});
+    alert(distinctId);
+}
+
+function apiready() {
+    var header = document.getElementById('header');
+    header.style.paddingTop = api.safeArea.top + 'px';
+}
+</script>
+</html>

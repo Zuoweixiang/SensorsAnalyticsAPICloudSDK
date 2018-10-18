@@ -229,7 +229,7 @@
     }
 }
 
--(void)deleteUser:(NSDictionary *)paramsDict{
+-(void)profileDelete:(NSDictionary *)paramsDict{
     _cbId = [paramsDict intValueForKey:@"cbId" defaultValue:-1];
     @try {
         [SensorsAnalyticsSDK.sharedInstance deleteUser];

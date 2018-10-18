@@ -280,7 +280,7 @@
  * 删除当前这个用户的所有记录
  * @param paramsDict 无参数
  */
--(void)deleteUser:(NSDictionary *)paramsDict;
+-(void)profileDelete:(NSDictionary *)paramsDict;
 
 /**
  * @abstract

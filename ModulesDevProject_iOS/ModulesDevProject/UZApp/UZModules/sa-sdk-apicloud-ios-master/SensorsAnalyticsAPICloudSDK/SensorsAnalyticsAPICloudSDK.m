@@ -48,7 +48,7 @@
         if (serverURL.length > 0) {
             [SensorsAnalyticsSDK sharedInstanceWithServerURL:serverURL andDebugMode:mode];
             if (downloadChannel.length > 0) {
-                [SensorsAnalyticsSDK.sharedInstance trackInstallation:@"AppInstall"];
+                [SensorsAnalyticsSDK.sharedInstance trackInstallation:@"AppInstall" withProperties:@{@"downloadChannel":downloadChannel}];
             }
             [SensorsAnalyticsSDK.sharedInstance enableLog:enableLog];
             if (enableAutoTrack) {

@@ -90,6 +90,7 @@
             <a class="button" tapmode="active" onclick="deleteAll()">deleteAll</a>
             
             <a class="button" tapmode="active" onclick="setServerUrl()">setServerUrl</a>
+            <a class="button" tapmode="active" onclick="clearKeyChainData()">clearKeyChainData</a>
 
 
         </div>
@@ -206,12 +207,15 @@ function getDistinctId() {
 
 function deleteAll() {
     var sensorsApiCloudSdk = api.require('sensorsAnalyticsAPICloudSDK');
-    var distinctId = sensorsApiCloudSdk.deleteAll();
+    sensorsApiCloudSdk.deleteAll();
 }
 function setServerUrl() {
     var sensorsApiCloudSdk = api.require('sensorsAnalyticsAPICloudSDK');
-    var distinctId = sensorsApiCloudSdk.setServerUrl({serverUrl:'testURL'});
-    alert(distinctId);
+    sensorsApiCloudSdk.setServerUrl({serverUrl:'testURL'});
+}
+function clearKeyChainData() {
+    var sensorsApiCloudSdk = api.require('sensorsAnalyticsAPICloudSDK');
+    sensorsApiCloudSdk.clearKeyChainData();
 }
 
 function apiready() {

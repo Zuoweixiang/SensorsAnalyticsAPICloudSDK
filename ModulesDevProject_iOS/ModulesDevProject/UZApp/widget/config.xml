@@ -6,9 +6,9 @@
     <author email="developer@apicloud.com" href="http://www.apicloud.com">
         APICloud
     </author>
-    <feature name="SensorsAnalyticsAPICloudSDK">
-        <param name="serverURL" value="http://sdk-test.cloud.sensorsdata.cn:8006/sa?project=default&amp;token =95c73ae661f85aa0" />
-        <param name="debugMode" value="debugOff" />
+    <feature name="sensorsAnalyticsAPICloudSDK">
+        <param name="serverURL" value="http://sdk-test.datasink.sensorsdata.cn/sa?project=yangzhankun&amp;token=95c73ae661f85aa0" />
+        <param name="debugMode" value="debugAndTrack" />
         <param name="enableAutoTrack" value="true" />
         <param name="downloadChannel" value="AppStore" />
         <param name="enableLog" value="ture" />
